@@ -9,7 +9,7 @@ MongoClient.connect(
     }
 
     db.collection('Todos')
-      .find({ completed: false })
+      .find()
       .toArray()
       .then(
         docs => {
