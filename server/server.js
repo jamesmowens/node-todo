@@ -15,6 +15,13 @@ app.post('/todos', (req, res) => {
     .then(doc => res.send(doc), err => res.status(400).send(err));
 });
 
+app.get('/todos', (req, res) => {
+  console.log('hi');
+  Todo.find().then(todos => res.send({ todos }), e => res.status(400).send(e));
+});
+
 app.listen(3000, () => {
   console.log('started on port 3000');
 });
+
+module.exports = { app };
